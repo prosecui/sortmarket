@@ -33,6 +33,7 @@ document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().g
     async function shareMsg() {
       
       const result = await liff.shareTargetPicker([
+
         {
           "type": "flex",
           "altText": "Flex Message",
@@ -111,11 +112,15 @@ document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().g
                         },
                         {
                           "type": "image",
-                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/linecorp_code_withborder.png",
+                          "url": "https://prosecui.github.io/sortmarket/PremierLeague.png",
                           "size": "xl",
-                          "aspectMode": "cover"
+                          "aspectMode": "cover",
+                                                "action": {
+                            "type": "uri",
+                            "uri": "https://www.youtube.com/watch?v=HUAn6h0VA00"
+                          }
                         },
-                        {
+                 {
                           "type": "text",
                           "text": "You can enter the theater by using this code instead of a ticket",
                           "margin": "xxl",
@@ -171,27 +176,13 @@ document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().g
     function openWindow() {
 
         liff.openWindow({
-        url: "https://www.boonsit.com", 
+        url: "xxxx", 
         External : true
 
         })
 
     }
 
-    async function getFriendship() {
-
-
-      const friend = await liff.getFriendship()
-     document.getElementById("Friendship").append(friend.friendFlag)
-     if(!friend.friendFlag) {
-      if(confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-        Window.location = "https://lin.ee/jAQvCkC"
-      }
-
-      
-     }
-
-    }
 
     async function sendMsg() {
 
@@ -204,7 +195,7 @@ await liff.sendMessages([
   "type": "bubble",
   "hero": {
     "type": "image",
-    "url": "https://bogiesoft.github.io/IT6PM/PremierLeague.png",
+    "url": "https://prosecui.github.io/sortmarket/PremierLeague.png",
     "size": "full",
     "aspectRatio": "20:13",
     "aspectMode": "cover",
@@ -370,9 +361,9 @@ alert("Message sent")
 
 document.getElementById("isLoggedIn").append(liff.isLoggedIn())
 if(liff.isLoggedIn()) {
- // getEnvironment()
-  //getUserProfile()
-  //getContext()
+  getEnvironment()
+  getUserProfile()
+  getContext()
   //getFriendship()
   // createUniversalLink()
 
