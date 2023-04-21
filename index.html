@@ -12,18 +12,41 @@ document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().g
 
 </head>
 <body>
- 
-  <!-- <button id="btnMsg" onclick="sendMsg()">Send Message</button> -->
+  <p id="os"><b>OS:</b> </p>
+  <p id="language"><b>Language:</b> </p>
+  <p id="version"><b>Version:</b> </p>
+  <p id="isInClient"><b>isInClient:</b> </p>
+  <p id="accessToken"><b>AccessToken:</b> </p>
+  <img id="pictureUrl">
+  <p id="userId"><b>userId:</b> </p>
+  <p id="displayName"><b>displayName:</b> </p>
+  <p id="statusMessage"><b>statusMessage:</b> </p>
+  <p id="decodedIDToken"><b>email:</b> </p>
+  <p id="type"><b>type:</b> </p>
+  <p id="viewType"><b>viewType:</b> </p>
+  <p id="utouId"><b>utouId:</b> </p>
+  <p id="roomId"><b>roomId:</b> </p>
+  <p id="groupId"><b>groupId:</b> </p>
+  <p id="friendship"><b>isFriendship:</b> </p>
+  <p id="scanCode"><b>Code:</b> </p>
+  <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
+  <p id="universalLink1"><b>Universal Link:</b> </p>
+  <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
+  <p><a href="liff/path/?param=9">Link to Path</a></p>
+
+  <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
+  <button onclick="openWindow()">Open Window</button>
+  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-<!--   <script src="js/vconsole.min.js"></script>
+  <script src="js/vconsole.min.js"></script>
   <script>
     var vConsole = new VConsole()
     console.log("Hello World!")
     
-  </script> -->
+  </script>
 
  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script> 
   <script>
@@ -33,7 +56,6 @@ document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().g
     async function shareMsg() {
       
       const result = await liff.shareTargetPicker([
-
         {
           "type": "flex",
           "altText": "Flex Message",
@@ -112,15 +134,11 @@ document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().g
                         },
                         {
                           "type": "image",
-                          "url": "https://prosecui.github.io/sortmarket/PremierLeague.png",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/linecorp_code_withborder.png",
                           "size": "xl",
-                          "aspectMode": "cover",
-                                                "action": {
-                            "type": "uri",
-                            "uri": "https://www.youtube.com/watch?v=HUAn6h0VA00"
-                          }
+                          "aspectMode": "cover"
                         },
-                 {
+                        {
                           "type": "text",
                           "text": "You can enter the theater by using this code instead of a ticket",
                           "margin": "xxl",
@@ -176,13 +194,27 @@ document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().g
     function openWindow() {
 
         liff.openWindow({
-        url: "xxxx", 
+        url: "https://www.boonsit.com", 
         External : true
 
         })
 
     }
 
+    async function getFriendship() {
+
+
+      const friend = await liff.getFriendship()
+     document.getElementById("Friendship").append(friend.friendFlag)
+     if(!friend.friendFlag) {
+      if(confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
+        Window.location = "https://lin.ee/jAQvCkC"
+      }
+
+      
+     }
+
+    }
 
     async function sendMsg() {
 
@@ -191,110 +223,17 @@ if(liff.getContext().type !== "none"){
 await liff.sendMessages([
 
 
-{
-  "type": "bubble",
-  "hero": {
-    "type": "image",
-    "url": "https://prosecui.github.io/sortmarket/PremierLeague.png",
-    "size": "full",
-    "aspectRatio": "20:13",
-    "aspectMode": "cover",
-    "action": {
-      "type": "uri",
-      "uri": "https://www.youtube.com/watch?v=HUAn6h0VA00"
-    }
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "อาร์เซน่อล VS เซาแธมป์ตัน",
-        "weight": "bold",
-        "size": "lg"
-      },
-      {
-        "type": "box",
-        "layout": "baseline",
-        "margin": "md",
-        "contents": []
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "margin": "lg",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "รายการ : ฟุตบอลพรีเมียร์ลีก 2022/23",
-                "wrap": true,
-                "color": "#666666",
-                "size": "sm",
-                "flex": 5
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "สนาม : เอมิเรต สเตเดี้ยม",
-                "wrap": true,
-                "color": "#666666",
-                "size": "sm",
-                "flex": 5
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "spacing": "sm",
-    "contents": [
-      {
-        "type": "button",
-        "style": "link",
-        "height": "sm",
-        "action": {
-          "type": "uri",
-          "label": "ํYoutube",
-          "uri": "https://www.youtube.com/watch?v=HUAn6h0VA00"
+        {
+          "type": "sticker",
+          "stickerId":1,
+          "packageId":1
+        },
+        {
+          "type": "sticker",
+          "stickerId":1,
+          "packageId":1
         }
-      },
-      {
-        "type": "button",
-        "style": "link",
-        "height": "sm",
-        "action": {
-          "type": "uri",
-          "label": "สมัครสมาชิก",
-          "uri": "https://bit.ly/3S1FzCv"
-        }
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [],
-        "margin": "sm"
-      }
-    ],
-    "flex": 0
-  }
-}
+
 
 ])
 
@@ -364,7 +303,7 @@ if(liff.isLoggedIn()) {
   getEnvironment()
   getUserProfile()
   getContext()
-  //getFriendship()
+  getFriendship()
   // createUniversalLink()
 
 } else {
