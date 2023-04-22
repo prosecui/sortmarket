@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>Zort Digital Marketing ver 1.1.3</title>
+  <title>Zort Digital Marketing ver 1.1.4</title>
   <script>
     document.write('<link rel="stylesheet" href="css/style.css?cache=' + new Date().getTime() + '">')
   </script>
@@ -207,11 +207,11 @@
       if (liff.isLoggedIn()) {
         document.getElementById("btnShare").style.display = "block"
         document.getElementById("btnShareBubble").style.display = "block"
-        document.getElementById("btnClose").style.display = "block"
         
         
-        if (!liff.isInClient()) {
+        if (liff.isInClient()) {
           document.getElementById("btnLogOut").style.display = "block"
+          document.getElementById("btnClose").style.display = "block"
         }
       } else {
         document.getElementById("btnLogin").style.display = "block"
