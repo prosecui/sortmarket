@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>Zort Digital Marketing ver 1.1.1</title>
+  <title>Zort Digital Marketing ver 1.1.2</title>
   <style>
     body { padding: 256px }
     button { display: none; width: 50%; padding: 16px 0; margin: 16px auto }
   </style>
 </head>
 <body>
+  
+  <button id="btnShare" onclick="sendShareBubble()">Share sendShareBubble</button>
   <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
+
   <button id="btnLogin" onclick="liff.login()">Log In</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
@@ -131,6 +134,63 @@
         }
       }
     }
+
+    async function sendShareBubble() {
+      const result = await liff.shareTargetPicker([
+        {
+          "type": "flex",
+          "altText": "Flex Message",
+          "contents": {
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://prosecui.github.io/sortmarket/img/sortbet_88hot.jpg",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://bit.ly/3S1FzCv"
+    }
+  },
+  "footer": {
+    "type": "box",
+    "layout": "horizontal",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "height": "sm",
+        "action": {
+          "type": "uri",
+          "label": "สมัครคลิ๊กเลย!",
+          "uri": "https://bit.ly/3S1FzCv"
+        },
+        "margin": "xs",
+        "style": "primary"
+      }
+    ],
+    "flex": 0
+  }
+}
+        }
+      ])
+      if (result) {
+        alert(`[${result.status}] Message sent!`)
+      } else {
+        const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
+
+        if (minorVer === undefined) {
+          alert('ShareTargetPicker was canceled in external browser')
+          return
+        }
+
+        if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
+          alert('ShareTargetPicker was canceled in LINE app')
+        }
+      }
+    }
+
     function logOut() {
       liff.logout()
       window.location.reload()
