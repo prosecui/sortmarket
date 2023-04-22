@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>Zort Digital Marketing ver 1.0.2</title>
+  <title>Zort Digital Marketing ver 1.0.3</title>
   <!--   <link rel="stylesheet" href="css/style.css" media="all"> -->
 
   <script>
@@ -38,7 +38,7 @@
 
   <!--  <button id="btnMsg" onclick="sendMsg()">Send Message</button> -->
   <button id="btnShare" onclick="shareMsg()">แชร์ Line Flex Message </button>
-  <button id="btnShare" onclick="shareVideo()">แชร์ Line Flex Video </button>
+  <button id="btnShare" onclick="shareBubble()">แชร์ Line Flex Bubble </button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
@@ -223,29 +223,48 @@
 
 
 
-    async function shareVideo() {
+    async function shareBubble() {
 
 const result = await liff.shareTargetPicker([
 
 {
   "type": "bubble",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Header text"
+      }
+    ]
+  },
   "hero": {
-    "type": "video",
-    "url": "https://mokmoon.com/videos/Brown.mp4",
-    "previewUrl": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-    "altContent": {
-      "type": "image",
-      "size": "full",
-      "aspectRatio": "20:13",
-      "aspectMode": "cover",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png"
-    },
-    "action": {
-      "type": "uri",
-      "label": "คลิกเลย",
-      "uri": "https://line.me/"
-    },
-    "aspectRatio": "16:9"
+    "type": "image",
+    "url": "https://example.com/flex/images/image.jpg"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Body text"
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Footer text"
+      }
+    ]
+  },
+  "styles": {
+    "comment": "See the example of a bubble style object"
   }
 }
 
