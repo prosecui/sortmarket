@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
-  <title>Zort Digital Marketing ver 1.0.3</title>
-  <!--   <link rel="stylesheet" href="css/style.css" media="all"> -->
+  <title>Line Liff App ver.1.0</title>
+<!--   <link rel="stylesheet" href="css/style.css" media="all"> -->
 
   <script>
-    document.write('<link rel="stylesheet" href="css/style.css?cache=' + new Date().getTime() + '">')
+document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().getTime() +'">')
   </script>
 
 </head>
-
 <body>
   <p id="os"><b>OS:</b> </p>
   <p id="language"><b>Language:</b> </p>
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
-  <!--  <p id="accessToken"><b>AccessToken:</b> </p> -->
+  <p id="accessToken"><b>AccessToken:</b> </p>
   <img id="pictureUrl">
-  <!--  <p id="userId"><b>userId:</b> </p> -->
+  <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
-  <!--  <p id="decodedIDToken"><b>email:</b> </p> -->
-  <!-- <p id="type"><b>type:</b> </p>
+  <p id="decodedIDToken"><b>email:</b> </p>
+  <p id="type"><b>type:</b> </p>
   <p id="viewType"><b>viewType:</b> </p>
   <p id="utouId"><b>utouId:</b> </p>
   <p id="roomId"><b>roomId:</b> </p>
@@ -34,31 +32,31 @@
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
   <p id="universalLink1"><b>Universal Link:</b> </p>
   <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
-  <p><a href="liff/path/?param=9">Link to Path</a></p> -->
+  <p><a href="liff/path/?param=9">Link to Path</a></p>
 
-  <!--  <button id="btnMsg" onclick="sendMsg()">Send Message</button> -->
-  <button id="btnShare" onclick="shareMsg()">แชร์ Line Flex Message </button>
+  <button id="btnMsg" onclick="sendMsg()">Send Message</button>
+  <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
+  <button onclick="openWindow()">Open Window</button>
+  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
-  <!--   <script src="js/vconsole.min.js"></script>
+  <script src="js/vconsole.min.js"></script>
   <script>
     var vConsole = new VConsole()
     console.log("Hello World!")
     
-  </script> -->
+  </script>
 
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+ <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script> 
   <script>
     function createUniversalLink() {
     }
 
     async function shareMsg() {
-
+      
       const result = await liff.shareTargetPicker([
-
-
-      {
+        {
           "type": "flex",
           "altText": "Flex Message",
           "contents": {
@@ -70,7 +68,7 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "วิเคราะห์ฟุตบอลวันนี้",
+                  "text": "BROWN'S ADVENTURE",
                   "size": "xl",
                   "gravity": "center",
                   "weight": "bold",
@@ -89,14 +87,14 @@
                       "contents": [
                         {
                           "type": "text",
-                          "text": "รายการ :",
+                          "text": "Date",
                           "flex": 1,
                           "size": "sm",
                           "color": "#AAAAAA"
                         },
                         {
                           "type": "text",
-                          "text": " ฟุตบอลพรีเมียร์ลีก 2022/23",
+                          "text": "Monday 25, 9:00PM",
                           "flex": 4,
                           "size": "sm",
                           "color": "#666666",
@@ -111,58 +109,14 @@
                       "contents": [
                         {
                           "type": "text",
-                          "text": "แมตช์การแข่งขัน",
+                          "text": "Place",
                           "flex": 1,
                           "size": "sm",
                           "color": "#AAAAAA"
                         },
                         {
                           "type": "text",
-                          "text": "เบรนท์ฟอร์ด VS แอสตัน วิลล่า",
-                          "flex": 4,
-                          "size": "sm",
-                          "color": "#666666",
-                          "wrap": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "วัน / เวลาทำการแข่งขัน",
-                          "flex": 1,
-                          "size": "sm",
-                          "color": "#AAAAAA"
-                        },
-                        {
-                          "type": "text",
-                          "text": "วันเสาร์ที่ 22 เมษายน 2566 เวลา 21.00 น.",
-                          "flex": 4,
-                          "size": "sm",
-                          "color": "#666666",
-                          "wrap": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "สนาม",
-                          "flex": 1,
-                          "size": "sm",
-                          "color": "#AAAAAA"
-                        },
-                        {
-                          "type": "text",
-                          "text": "จีเท็ค คอมมูนิตี้ สเตเดี้ยม",
+                          "text": "LINE Thailand",
                           "flex": 4,
                           "size": "sm",
                           "color": "#666666",
@@ -180,14 +134,13 @@
                         },
                         {
                           "type": "image",
-                          "url": "https://prosecui.github.io/sortmarket/PremierLeague.png",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/linecorp_code_withborder.png",
                           "size": "xl",
                           "aspectMode": "cover"
                         },
-                       
                         {
                           "type": "text",
-                          "text": "ผลสกอร์ที่คาด (เบรนท์ฟอร์ด 1-2 แอสตัน วิลล่า) | ผู้สนับสนุนโดย @888hot ",
+                          "text": "You can enter the theater by using this code instead of a ticket",
                           "margin": "xxl",
                           "size": "xs",
                           "color": "#AAAAAA",
@@ -200,7 +153,7 @@
               ]
             }
           }
-        } 
+        }
       ])
       if (result) {
         alert(`[${result.status}] Message sent!`)
@@ -222,74 +175,77 @@
 
     function logOut() {
       liff.logout()
-      window.location.reload()
+      Window.location.reload()
 
     }
 
     function closed() {
 
-      liff.closeWindow()
+      liff.closeWindow() 
 
     }
 
     async function scanCode() {
 
-
+        const result = await liff.scanCode() 
+        document.getElementById("scanCode").append(result.value)
     }
 
     function openWindow() {
 
+        liff.openWindow({
+        url: "https://www.boonsit.com", 
+        External : true
 
+        })
 
     }
 
     async function getFriendship() {
 
-     
-/* 
-      const friend = await liff.getFriendship(){
 
-      document.getElementById("Friendship").append(friend.friendFlag)
-      if (!friend.friendFlag) {
-        if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-          Window.location = "https://lin.ee/jAQvCkC"
-        }
+      const friend = await liff.getFriendship()
+     document.getElementById("Friendship").append(friend.friendFlag)
+     if(!friend.friendFlag) {
+      if(confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
+        Window.location = "https://lin.ee/jAQvCkC"
+      }
 
-
-      } */
+      
+     }
 
     }
 
     async function sendMsg() {
 
-      if (liff.getContext().type !== "none") {
+if(liff.getContext().type !== "none"){
 
-        await liff.sendMessages([
-
-
-          {
-            "type": "sticker",
-            "stickerId": 1,
-            "packageId": 1
-          },
-          {
-            "type": "sticker",
-            "stickerId": 1,
-            "packageId": 1
-          }
+await liff.sendMessages([
 
 
-        ])
+        {
+          "type": "sticker",
+          "stickerId":1,
+          "packageId":1
+        },
+        {
+          "type": "sticker",
+          "stickerId":1,
+          "packageId":1
+        }
 
-        alert("Message sent")
 
+])
 
+alert("Message sent")
 
 
 
 
 
-      }
+
+
+}
 
 
 
@@ -297,65 +253,67 @@
 
     function getContext() {
 
-      /*  document.getElementById("type").append(liff.getContext().type)
-       document.getElementById("viewType").append(liff.getContext().viewType)
-       document.getElementById("utouId").append(liff.getContext().utouId)
-       document.getElementById("roomId").append(liff.getContext().roomId)
-       document.getElementById("groupId").append(liff.getContext().groupId) */
+      document.getElementById("type").append(liff.getContext().type)
+      document.getElementById("viewType").append(liff.getContext().viewType)
+      document.getElementById("utouId").append(liff.getContext().utouId)
+      document.getElementById("roomId").append(liff.getContext().roomId)
+      document.getElementById("groupId").append(liff.getContext().groupId)
 
     }
 
     async function getUserProfile() {
 
       const profile = await liff.getProfile();
-      document.getElementById("pictureUrl").src = profile.pictureUrl
-      /*       document.getElementById("userId").append(profile.userId) */
-      document.getElementById("statusMessage").append(profile.statusMessage)
-      document.getElementById("displayName").append(profile.displayName)
+        document.getElementById("pictureUrl").src = profile.pictureUrl
+        document.getElementById("userId").append(profile.userId)
+        document.getElementById("statusMessage").append(profile.statusMessage)
+        document.getElementById("displayName").append(profile.displayName)
     }
 
     function getEnvironment() {
       document.getElementById("os").append(liff.getOS())
       document.getElementById("language").append(liff.getLanguage())
       document.getElementById("version").append(liff.getVersion())
+      document.getElementById("accessToken").append(liff.getAccessToken())
+      document.getElementById("accessToken").append(liff.getAccessToken())
       document.getElementById("isInClient").append(liff.isInClient())
-
-      if (liff.isInClient()) {
-
-        document.getElementById("btnLogout").style.display = "none"
-
+      
+      if(liff.isInClient()) {
+        
+       document.getElementById("btnLogout").style.display = "none"
+        
       }
-      else {
-
-        /* document.getElementById("btnMsg").style.display = "none" */
-        /*  document.getElementById("btnScanCode").style.display = "none" */
+      else
+      {
+        
+        document.getElementById("btnMsg").style.display = "none"
+        document.getElementById("btnScanCode").style.display = "none"
         document.getElementById("btnClose").style.display = "none"
-      }
-
-
+     }
+      
+      
     }
 
     async function main() {
+  
+  await liff.init({ liffId: "1660949322-edqG7kkq" })
 
-      await liff.init({ liffId: "1660949964-kzLzqGp6" })
+document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+if(liff.isLoggedIn()) {
+  getEnvironment()
+  getUserProfile()
+  getContext()
+  getFriendship()
+  // createUniversalLink()
 
+} else {
+  liff.login()
+}
 
-      if (liff.isLoggedIn()) {
-        getEnvironment()
-        getUserProfile()
-        getContext()
-      //  getFriendship()
-        // createUniversalLink()
-
-      } else {
-        liff.login()
-      }
-
-
+      
 
     }
     main()
   </script>
 </body>
-
 </html>
