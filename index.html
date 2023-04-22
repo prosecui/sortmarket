@@ -36,8 +36,6 @@ document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().g
 
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
-  <button onclick="openWindow()">Open Window</button>
-  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
@@ -187,17 +185,12 @@ document.write('<link rel="stylesheet" href="css/style.css?cache='+ new Date().g
 
     async function scanCode() {
 
-        const result = await liff.scanCode() 
-        document.getElementById("scanCode").append(result.value)
+ 
     }
 
     function openWindow() {
 
-        liff.openWindow({
-        url: "https://www.boonsit.com", 
-        External : true
-
-        })
+ 
 
     }
 
@@ -296,7 +289,7 @@ alert("Message sent")
 
     async function main() {
   
-  await liff.init({ liffId: "1660949322-edqG7kkq" })
+  await liff.init({ liffId: "1660949964-kzLzqGp6" })
 
 document.getElementById("isLoggedIn").append(liff.isLoggedIn())
 if(liff.isLoggedIn()) {
